@@ -182,5 +182,5 @@ estimate_grm_eval <- function(true_params, n_c, t, a, b, t_free, a_free, b_free)
   for(i in 1:(n_c-1)) 
     if(any(b_free[,i])) 
       cat('b_', i, ': corr = ', round(cor(b[,i], true_params$b[,i]), 3), ', rmse = ', round(rmse(b[,i], true_params$b[,i]), 3),'\n', sep='')
-  
 }
+
