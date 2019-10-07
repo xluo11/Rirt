@@ -6,3 +6,4 @@
 tests/
 change_log.txt
 src/*.dll
+src/*.so
