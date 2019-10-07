@@ -34,23 +34,15 @@ model_grm_prob <- function(t, a, b, D=1.702, raw=FALSE){
 #' with(model_grm_gendata(10, 5, 3), model_grm_info(t, a, b))
 #' @export 
 model_grm_info <- function(t, a, b, D=1.702){
-  p  <- p_ <- model_grm_prob(t, a, b, D)
+  p  <- p_ <- Rirt::model_grm_prob(t, a, b, D)
   p_[is.na(p_)] <- 0
   p_ <- aperm(apply(p_, c(1, 2), function(x) rev(cumsum(c(0, rev(x))))), c(2, 3, 1))
   n_c <- dim(p)[3]
   dv1_p_ <- aperm(p_ * (1 - p_), c(2, 3, 1)) * D * a
   dv2_p_ <- aperm((1 - 2 * p_) * p_ * (1 - p_), c(2, 3, 1)) * (D * a)^2
-  dv1_p <- dv1_p_[,1:n_c,] - dv1_p_[,-1,]
-  if(length(t) == 1)
-    dv1_p <- array(dv1_p, dim=c(dim(dv1_p), 1))
-  if(nrow(b) == 1)
-    dv1_p <- array(dv1_p, dim=c(1, dim(dv1_p)))
+  dv1_p <- dv1_p_[,1:n_c,,drop=FALSE] - dv1_p_[,-1,,drop=FALSE]
   dv1_p <- aperm(dv1_p, c(3, 1, 2))
-  dv2_p <- dv2_p_[,1:n_c,] - dv2_p_[,-1,]
-  if(length(t) == 1)
-    dv2_p <- array(dv2_p, dim=c(dim(dv2_p), 1))
-  if(nrow(b) == 1)
-    dv2_p <- array(dv2_p, dim=c(1, dim(dv2_p)))
+  dv2_p <- dv2_p_[,1:n_c,,drop=FALSE] - dv2_p_[,-1,,drop=FALSE]
   dv2_p <- aperm(dv2_p, c(3, 1, 2))
   1 / p * dv1_p^2 - dv2_p
 }

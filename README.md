@@ -1,14 +1,20 @@
 
-# Rirt: Data Analysis and Parameter Estimation Using Item Response Theory
+# Rirt: data analysis and parameter estimation using item response theory
+
+<!-- badges: start -->
+
+[![CRAN
+status](https://www.r-pkg.org/badges/version/Rirt)](https://cran.r-project.org/package=Rirt)
+<!-- badges: end -->
 
 ## Overview
 
 Rirt provides an interface for conducting data analysis and parameter
-estimation using item respone theory (IRT) efficiently in R. A variety
-of unidimensional IRT models is included, such as the
-3-parameter-logstic (3PL) model, the generalized partial credit model
-(GPCM), the graded response model (GRM), and a mixture of the
-aforementioned models.
+estimation using item respone theory (IRT) efficiently in
+[R](https://www.r-project.org/). A variety of unidimensional IRT models
+is included, such as the 3-parameter-logstic (3PL) model, the
+generalized partial credit model (GPCM), the graded response model
+(GRM), and a mixture of the aforementioned models.
 
 ## Installation
 
@@ -616,7 +622,7 @@ Visualization is essential in IRT data analysis, and this package makes
 it really easy to produce high-quality characteristic curves and
 information function curves at both item and test level.
 
-For example, users can draw ICCs and IIFs for a set of 3pl items:
+For example, users can draw ICCs and IIFs for a set of 3PL items:
 
 ``` r
 data <- model_3pl_gendata(1, 5)
@@ -647,7 +653,7 @@ with(data, model_3pl_plot(a, b, c, type='info', total=TRUE))
 
 ![](README_files/figure-gfm/unnamed-chunk-8-4.png)<!-- -->
 
-Draw draw ICCs and IIFs for a set of GPCM items:
+Draw ICCs and IIFs for a set of GPCM items:
 
 ``` r
 # Reproduce Figure 1 in Muraki's 1992 APM article
@@ -689,7 +695,7 @@ model_gpcm_plot(a=1, b=rowMeans(b), d=rowMeans(b)-b, D=1.0, type='info', item_le
 
 ![](README_files/figure-gfm/unnamed-chunk-10-2.png)<!-- -->
 
-Draw draw ICCs and IIFs for a set of GRM items:
+Draw ICCs and IIFs for a set of GRM items:
 
 ``` r
 data <- model_grm_gendata(1, 3, n_c=3)
@@ -904,5 +910,5 @@ round(c(corr=cor(data$t, scores$t), rmse=rmse(data$t, scores$t)), 2)
 If you encounter a bug, please post a code example that exposes the bug
 on [github](https://github.com/xluo11/Rirt/issues). You can post your
 questions and feature requests on
-[github](https://github.com/xluo11/Rirt/issues) or to the
+[github](https://github.com/xluo11/Rirt/issues) or contact the
 [author](mailto:xluo1986@gmail.com).

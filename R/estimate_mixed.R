@@ -25,7 +25,7 @@ model_mixed_eap <- function(u, items, D=1.702, priors=c(0, 1), bounds_t=c(-4, 4)
   u_ix0 <- c(0, u_ix1[-length(u_ix1)]) + 1
   u_ix1[n_i == 0] <- 0
   u_ix0[n_i == 0] <- 0
-  u <- Map(function(x, y) u[, x:y], u_ix0, u_ix1)
+  u <- Map(function(x, y) u[, x:y,drop=FALSE], u_ix0, u_ix1)
   names(u) <- names(items)
   
   quad <- hermite_gauss('11')
@@ -83,7 +83,7 @@ model_mixed_map <- function(u, items, D=1.702, priors=c(0, 1), bounds_t=c(-4, 4)
   u_ix0 <- c(0, u_ix1[-length(u_ix1)]) + 1
   u_ix1[n_i == 0] <- 0
   u_ix0[n_i == 0] <- 0
-  u <- Map(function(x, y) u[, x:y], u_ix0, u_ix1)
+  u <- Map(function(x, y) u[, x:y,drop=FALSE], u_ix0, u_ix1)
   names(u) <- names(items)
   
   if(!is.null(items$'gpcm'))
