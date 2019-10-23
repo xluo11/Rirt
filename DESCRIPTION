@@ -2,7 +2,7 @@ Package: Rirt
 Type: Package
 Title: Data Analysis and Parameter Estimation Using Item Response Theory
 Version: 0.0.2
-Date: 2019-11-22
+Date: 2019-10-22
 Authors@R: c(person("Xiao", "Luo", role=c("aut","cre"), email="xluo1986@gmail.com"))
 Author: Xiao Luo [aut, cre]
 Maintainer: Xiao Luo <xluo1986@gmail.com>

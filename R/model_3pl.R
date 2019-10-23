@@ -50,6 +50,7 @@ model_3pl_rescale <- function(t, a, b, c, scale=c("t", "b"), mean=0, sd=1){
 #' @param b_bounds bounds of the difficulty parameters 
 #' @param c_bounds bounds of the guessing parameters 
 #' @param missing the proportion or number of missing responses
+#' @param ... additional arguments
 #' @return \code{model_3pl_gendata} returns the generated response matrix and parameters in a list
 #' @examples
 #' model_3pl_gendata(10, 5)
@@ -59,7 +60,7 @@ model_3pl_rescale <- function(t, a, b, c, scale=c("t", "b"), mean=0, sd=1){
 model_3pl_gendata <- function(n_p, n_i, t=NULL, a=NULL, b=NULL, c=NULL, D=1.702, 
                               t_dist=c(0, 1), a_dist=c(-.1, .2), b_dist=c(0, .7), c_dist=c(5, 46), 
                               t_bounds=c(-3, 3), a_bounds=c(.01, 2.5), b_bounds=c(-3, 3), c_bounds=c(0, .5), 
-                              missing=NULL){
+                              missing=NULL, ...){
   if(is.null(t)){
     t <- rnorm(n_p, mean=t_dist[1], sd=t_dist[2])
     t[t < t_bounds[1]] <- t_bounds[1]

@@ -75,6 +75,7 @@ model_gpcm_lh <- function(u, t, a, b, d, D=1.702, d0=NULL, log=FALSE){
 #' @param b_bounds the bounds of the difficulty parameters
 #' @param d_bounds the bounds of the category parameters
 #' @param missing the proportion or number of missing responses
+#' @param ... additional arguments
 #' @return \code{model_gpcm_gendata} returns the generated response matrix and parameters
 #' @examples
 #' model_gpcm_gendata(10, 5, 3)
@@ -84,7 +85,7 @@ model_gpcm_lh <- function(u, t, a, b, d, D=1.702, d0=NULL, log=FALSE){
 model_gpcm_gendata <- function(n_p, n_i, n_c, t=NULL, a=NULL, b=NULL, d=NULL, D=1.702, sort_d=FALSE, 
                                t_dist=c(0, 1), a_dist=c(-.1, .2), b_dist=c(0, .8), d_dist=c(0, 1),
                                t_bounds=c(-3, 3), a_bounds=c(.01, 2.5), b_bounds=c(-3, 3), d_bounds=c(-3, 3),
-                               missing=NULL){
+                               missing=NULL, ...){
   if(is.null(t)){
     t <- rnorm(n_p, mean=t_dist[1], sd=t_dist[2])
     t[t < t_bounds[1]] <- t_bounds[1]

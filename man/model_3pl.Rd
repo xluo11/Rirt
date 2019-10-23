@@ -22,7 +22,8 @@ model_3pl_rescale(t, a, b, c, scale = c("t", "b"), mean = 0, sd = 1)
 model_3pl_gendata(n_p, n_i, t = NULL, a = NULL, b = NULL, c = NULL,
   D = 1.702, t_dist = c(0, 1), a_dist = c(-0.1, 0.2), b_dist = c(0,
   0.7), c_dist = c(5, 46), t_bounds = c(-3, 3), a_bounds = c(0.01,
-  2.5), b_bounds = c(-3, 3), c_bounds = c(0, 0.5), missing = NULL)
+  2.5), b_bounds = c(-3, 3), c_bounds = c(0, 0.5), missing = NULL,
+  ...)
 
 model_3pl_plot(a, b, c, D = 1.702, type = c("prob", "info"),
   total = FALSE, xaxis = seq(-4, 4, 0.1))
@@ -72,6 +73,8 @@ model_3pl_plot_loglh(u, a, b, c, D = 1.702, xaxis = seq(-4, 4, 0.1),
 \item{c_bounds}{bounds of the guessing parameters}
 
 \item{missing}{the proportion or number of missing responses}
+
+\item{...}{additional arguments}
 
 \item{type}{the type of plot: 'prob' for item characteristic curve (ICC) and 
 'info' for item information function curve (IIFC)}

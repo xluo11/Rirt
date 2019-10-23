@@ -73,6 +73,7 @@ model_grm_lh <- function(u, t, a, b, D=1.702, log=FALSE){
 #' @param a_bounds the bounds of the discrimination parameters
 #' @param b_bounds the bounds of the difficulty parameters
 #' @param missing the proportion or number of missing responses
+#' @param ... additional arguments
 #' @return \code{model_grm_gendata} returns the generated response data and parameters in a list
 #' @examples
 #' model_grm_gendata(10, 5, 3)
@@ -82,7 +83,7 @@ model_grm_lh <- function(u, t, a, b, D=1.702, log=FALSE){
 model_grm_gendata <- function(n_p, n_i, n_c, t=NULL, a=NULL, b=NULL, D=1.702, 
                               t_dist=c(0, 1), a_dist=c(-.1, .2), b_dist=c(0, .8), 
                               t_bounds=c(-3, 3), a_bounds=c(.01, 2.5), b_bounds=c(-3, 3),
-                              missing=NULL){
+                              missing=NULL, ...){
   if(is.null(t)){
     t <- rnorm(n_p, mean=t_dist[1], sd=t_dist[2])
     t[t < t_bounds[1]] <- t_bounds[1]

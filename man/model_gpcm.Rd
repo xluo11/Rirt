@@ -21,7 +21,7 @@ model_gpcm_gendata(n_p, n_i, n_c, t = NULL, a = NULL, b = NULL,
   d = NULL, D = 1.702, sort_d = FALSE, t_dist = c(0, 1),
   a_dist = c(-0.1, 0.2), b_dist = c(0, 0.8), d_dist = c(0, 1),
   t_bounds = c(-3, 3), a_bounds = c(0.01, 2.5), b_bounds = c(-3, 3),
-  d_bounds = c(-3, 3), missing = NULL)
+  d_bounds = c(-3, 3), missing = NULL, ...)
 
 model_gpcm_rescale(t, a, b, d, scale = c("t", "b"), mean = 0, sd = 1)
 
@@ -74,6 +74,8 @@ model_gpcm_plot_loglh(u, a, b, d, D = 1.702, d0 = NULL,
 \item{d_bounds}{the bounds of the category parameters}
 
 \item{missing}{the proportion or number of missing responses}
+
+\item{...}{additional arguments}
 
 \item{scale}{the scale, 't' for theta or 'b' for b-parameters}
 

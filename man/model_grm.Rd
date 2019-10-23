@@ -20,7 +20,7 @@ model_grm_lh(u, t, a, b, D = 1.702, log = FALSE)
 model_grm_gendata(n_p, n_i, n_c, t = NULL, a = NULL, b = NULL,
   D = 1.702, t_dist = c(0, 1), a_dist = c(-0.1, 0.2), b_dist = c(0,
   0.8), t_bounds = c(-3, 3), a_bounds = c(0.01, 2.5),
-  b_bounds = c(-3, 3), missing = NULL)
+  b_bounds = c(-3, 3), missing = NULL, ...)
 
 model_grm_rescale(t, a, b, scale = c("t", "b"), mean = 0, sd = 1)
 
@@ -65,6 +65,8 @@ model_grm_plot_loglh(u, a, b, D = 1.702, xaxis = seq(-6, 6, 0.1),
 \item{b_bounds}{the bounds of the difficulty parameters}
 
 \item{missing}{the proportion or number of missing responses}
+
+\item{...}{additional arguments}
 
 \item{scale}{the scale, 't' for theta or 'b' for b-parameters}
 
